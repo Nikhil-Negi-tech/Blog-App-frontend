@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* Classy, professional body styling */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'sans-serif';
+  color: #1e293b;
+  letter-spacing: 0.01em;
+  transition: background 0.3s;
+}
+
+/* Smooth scrolling for a modern feel */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Headings: elegant, bold, with a touch of color */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', 'Georgia', serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #0f172a;
+  margin-bottom: 0.5em;
+}
+
+/* Links: subtle hover effect */
+a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #1e40af;
+  text-decoration: underline;
+}
+
+/* Buttons: rounded, shadow, soft hover */
+button, .btn {
+  font-family: inherit;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.04);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+button:focus, .btn:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Inputs: clean, modern, with focus ring */
+input, textarea, select {
+  border-radius: 0.375rem;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
+
+/* Prose (markdown content) */
+.prose {
+  color: #1e293b;
+  max-width: 100%;
+}
+.prose h1, .prose h2, .prose h3 {
+  color: #0f172a;
+  font-family: 'Merriweather', 'Georgia', serif;
+}
+.prose img {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.08);
+  margin: 1.5em 0;
+}
+.prose pre {
+  background: #f1f5f9;
+  border-radius: 0.5rem;
+  padding: 1em;
+  font-size: 1em;
+  overflow-x: auto;
+}
+.prose code {
+  background: #f3f4f6;
+  border-radius: 0.3em;
+  padding: 0.2em 0.4em;
+  font-size: 0.96em;
+  color: #be185d;
+}
+
+/* Subtle card shadow for containers */
+.card, .bg-white.rounded-lg.shadow, .bg-white.p-6.rounded-lg.shadow {
+  box-shadow: 0 4px 24px rgba(30, 41, 59, 0.07), 0 1.5px 6px rgba(30, 41, 59, 0.03);
+}
+
+/* Footer: elegant and simple */
+footer {
+  background: #0f172a;
+  color: #fff;
+  letter-spacing: 0.02em;
+  font-size: 1.05em;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  body {
+    font-size: 1.02em;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+}

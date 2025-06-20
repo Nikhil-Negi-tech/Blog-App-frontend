@@ -23,7 +23,7 @@ const Home = () => {
         ) : (
           <Link 
             to="/login" 
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-lg font-medium"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-lg font-medium" style={{ textDecoration: 'none', color: 'white' }}
           >
             Login to Start Writing
           </Link>

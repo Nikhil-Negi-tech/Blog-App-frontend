@@ -104,7 +104,9 @@ const Header = ({ user, setUser }) => {
                   to="/register"
                   onClick={() => setMenuOpen(false)}
                   className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white"
+                  style={{ textDecoration: "none", color: "white" }}
                 >
+                  
                   Register
                 </Link>
               </>

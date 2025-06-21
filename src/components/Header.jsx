@@ -80,12 +80,12 @@ const Header = ({ user, setUser }) => {
         {/* Mobile Nav */}
         {menuOpen && (
           <nav className="flex flex-col gap-4 mt-4 sm:hidden bg-gray-900 p-4 rounded shadow">
-            <Link to="/" onClick={() => setMenuOpen(false)} className="hover:bg-gray-700 px-3 py-2 rounded text-white">
+            <Link to="/" onClick={() => setMenuOpen(false)} className="hover:bg-gray-700 px-3 py-2 rounded text-white" style={{ textDecoration: "none", color: "white" }}>
               Home
             </Link>
             {user ? (
               <>
-                <Link to="/create" onClick={() => setMenuOpen(false)} className="hover:bg-gray-700 px-3 py-2 rounded text-white">
+                <Link to="/create" onClick={() => setMenuOpen(false)} className="hover:bg-gray-700 px-3 py-2 rounded text-white" style={{ textDecoration: "none", color: "white" }}>
                   Create Blog
                 </Link>
                 <button
@@ -97,7 +97,7 @@ const Header = ({ user, setUser }) => {
               </>
             ) : (
               <>
-                <Link to="/login" onClick={() => setMenuOpen(false)} className="hover:bg-gray-700 px-3 py-2 rounded text-white">
+                <Link to="/login" onClick={() => setMenuOpen(false)} className="hover:bg-gray-700 px-3 py-2 rounded text-white" style={{ textDecoration: "none", color: "white" }}>
                   Login
                 </Link>
                 <Link

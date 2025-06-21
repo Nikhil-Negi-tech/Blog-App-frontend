@@ -44,17 +44,37 @@ const BlogReader = () => {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <article className="bg-white p-6 rounded-lg shadow">
-        <h1 className="text-3xl font-bold mb-2">{blog.title}</h1>
-        
-        <div className="text-gray-500 text-sm mb-6">
-          <span>By {blog.author?.username || 'Unknown'}</span>
-          <span className="mx-2">•</span>
-          <span>{new Date(blog.publishedAt || blog.createdAt).toLocaleDateString()}</span>
-        </div>
-
-        {/* Render Markdown content with proper styling */}
-        <div className="prose prose-headings:font-bold prose-headings:mt-6 prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg max-w-none">
+      {/* Custom styles for markdown prose and blog title */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+        .prose, .prose :where(p, h1, h2, h3, h4, h5, h6, strong, em, ul, ol, li, blockquote, code, pre) {
+          color: #fff !important;
+        }
+        .prose :where(a) { color: #60a5fa !important; }
+        .prose :where(code, pre) { background: #23272e !important; color: #fff !important; }
+        .blog-title-custom {
+          font-family: 'Montserrat', 'Poppins', 'Oswald', 'Arial Black', Arial, sans-serif;
+          font-size: 2.8rem;
+          font-weight: 800;
+          color: #fff;
+          margin-bottom: 0.5rem;
+          line-height: 1.1;
+          letter-spacing: -1px;
+        }
+        @media (min-width: 640px) {
+          .blog-title-custom {
+            font-size: 3.5rem;
+          }
+        }
+      `}</style>
+      <article className="bg-[#18181b] text-white p-6 rounded-lg shadow">
+        <div className="prose prose-invert prose-headings:font-bold prose-headings:mt-6 prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg max-w-none">
+          <h1 className="blog-title-custom">{blog.title}</h1>
+          <div className="text-gray-400 text-sm mb-6">
+            <span>By {blog.author?.username || 'Unknown'}</span>
+            <span className="mx-2">•</span>
+            <span>{new Date(blog.publishedAt || blog.createdAt).toLocaleDateString()}</span>
+          </div>
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {blog.content}
           </ReactMarkdown>

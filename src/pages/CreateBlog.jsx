@@ -30,8 +30,8 @@ const CreateBlog = () => {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Create New Blog</h1>
-      
+      <h1 className="text-2xl font-bold mb-6" style={{ color: "white" }}>Create New Blog</h1>
+
       {error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
           {error}

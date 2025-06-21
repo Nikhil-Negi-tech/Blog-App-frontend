@@ -10,7 +10,7 @@ const Header = ({ user, setUser }) => {
   };
 
   return (
-    <header className="bg-gray-800 text-white">
+    <header className="bg-gray-800 text-white" style={{ position: 'sticky', top: 0, zIndex: 1000, boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', backgroundColor: '#212121', borderBottom: '1px solid rgb(255, 255, 255)' }}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="text-2xl font-bold flex items-center gap-2 " style={{ textDecoration: 'none', color: 'white' }}>
@@ -18,12 +18,12 @@ const Header = ({ user, setUser }) => {
             Blog App
           </Link>
           <nav className="flex items-center gap-6">
-            <Link to="/" className="hover:text-gray-300" style={{ textDecoration: 'none', color: 'white' }}>
+            <Link to="/" className="hover:bg-gray-700 hover:scale-110 transition-all duration-200 px-3 py-1 rounded text-white" style={{ textDecoration: 'none', color: 'white', ':hover': { backgroundColor: 'gray' } }}>
               Home
             </Link>
             {user ? (
               <>
-                <Link to="/create" className="hover:text-gray-300" style={{ textDecoration: 'none', color: 'white' }}>
+                <Link to="/create" className="hover:bg-gray-700 hover:scale-110 transition-all duration-200 px-3 py-1 rounded text-white" style={{ textDecoration: 'none', color: 'white', ':hover': { backgroundColor: 'gray' } }}>
                   Create Blog
                 </Link>
                 <button
@@ -35,7 +35,7 @@ const Header = ({ user, setUser }) => {
               </>
             ) : (
               <>
-                <Link to="/login" className="hover:text-gray-300" style={{ textDecoration: 'none', color: 'white' }}>
+                <Link to="/login" className="hover:bg-gray-700 hover:scale-110 transition-all duration-200 px-3 py-1 rounded text-white" style={{ textDecoration: 'none', color: 'white' }}>
                   Login
                 </Link>
                 <Link

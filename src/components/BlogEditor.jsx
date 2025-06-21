@@ -16,7 +16,7 @@ const BlogEditor = ({ initialData = {}, onSubmit, submitLabel = 'Save' }) => {
       setContent(initialData.content || '')
       setIsPublished(initialData.isPublished || false)
     }
-  }, [initialData.title, initialData.content, initialData.isPublished])  // ← stable deps[1]
+  }, [initialData.title, initialData.content, initialData.isPublished])
 
   // Memoize editor options to keep editor instance stable
   const editorOptions = useMemo(() => ({
@@ -41,10 +41,29 @@ const BlogEditor = ({ initialData = {}, onSubmit, submitLabel = 'Save' }) => {
 
   return (
     <div className="max-w-3xl mx-auto">
+      {/* Custom styles for SimpleMDE and title input */}
+      <style>{`
+        .editor-toolbar, .CodeMirror, .CodeMirror-lines, .editor-preview, .editor-preview-active {
+          background: #18181b !important;
+          color: #fff !important;
+        }
+        .CodeMirror-cursor { border-left: 2px solid #fff !important; }
+        .editor-toolbar a { color: #fff !important; }
+        .editor-toolbar a.active, .editor-toolbar a:hover { background: #27272a !important; }
+        /* Title input background and placeholder */
+        #title {
+          background: #18181b !important;
+          color: #fff !important;
+        }
+        #title::placeholder {
+          color: #bbb !important;
+          opacity: 1 !important;
+        }
+      `}</style>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Title Input */}
         <div>
-          <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1" style={{ color: "white" }}>
             Title
           </label>
           <input
@@ -55,7 +74,7 @@ const BlogEditor = ({ initialData = {}, onSubmit, submitLabel = 'Save' }) => {
             className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500 ${
               errors.title ? 'border-red-500' : 'border-gray-300'
             }`}
-            placeholder="Enter blog title"
+            placeholder="Write in Markdown…"
             autoComplete="off"
           />
           {errors.title && <p className="mt-1 text-sm text-red-600">{errors.title}</p>}
@@ -63,7 +82,7 @@ const BlogEditor = ({ initialData = {}, onSubmit, submitLabel = 'Save' }) => {
 
         {/* Markdown Editor */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-gray-700 mb-1" style={{ color: "white" }}>
             Content (Markdown)
           </label>
           <SimpleMDE
@@ -83,7 +102,7 @@ const BlogEditor = ({ initialData = {}, onSubmit, submitLabel = 'Save' }) => {
             onChange={(e) => setIsPublished(e.target.checked)}
             className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
           />
-          <label htmlFor="isPublished" className="ml-2 text-sm text-gray-700">
+          <label htmlFor="isPublished" className="ml-2 text-sm text-gray-700" style={{ color: "white" }}>
             Publish immediately
           </label>
         </div>
